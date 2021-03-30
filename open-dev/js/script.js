@@ -11,6 +11,6 @@ function refresh(){
 }
 
 function download(){
-    document.writeln(refresh())
+    document.write(refresh())
 }
   

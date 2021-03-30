@@ -22,7 +22,7 @@ body {
 }
 
 @keyframes code{
-    from{padding-top: 0px; padding-bottom: 0px; width: 0%;}
+    from{padding-top: 500px; padding-bottom: 0px; width: 0%;}
     to{padding-top: 10px; padding-bottom: 10px; width: 100%;}
 }
 
