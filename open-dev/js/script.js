@@ -1,11 +1,6 @@
 var code2 = "";
 
-function check() {
-    refresh();
-}
-
-var codeeditor = document.getElementById("code");
-addEventListener("keyup", check)
+addEventListener("keyup", refresh)
 
 function refresh(){
     var code = document.getElementById('code').value;
