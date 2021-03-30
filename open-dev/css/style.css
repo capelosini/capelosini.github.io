@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(45deg, rgb(46, 46, 46), rgb(31, 31, 31));
+    background-color: rgb(51, 51, 51) !important;
 }
 
 ::selection{
@@ -12,6 +12,11 @@ body {
     height: 100% !important;
     text-align: center !important;
     font-family: verdana !important;
+}
+
+@keyframes code2{
+    from{padding-top: 0px;}
+    to{padding-top: 30px;}
 }
 
 @keyframes code{
@@ -38,7 +43,33 @@ body {
 }
 
 .text-editor h2{
+    animation-name: code !important;
+    animation-duration: 1s !important;
     color: rgb(226, 226, 226) !important;
+    padding-top: 30px;
+    transition-duration: 1.5s;
+}
+
+.text-editor h2:hover{
+    font-size: 30px;
+    transition-duration: 0.5s;
+}
+
+.text-editor button{
+    width: 110px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    float: left;
+    transition-duration: 1s;
+}
+
+.text-editor button:hover{
+    width: 120px;
+    color: white;
+    background-color: black;
+    transition-duration: 0.5s;
 }
 
 .response{
