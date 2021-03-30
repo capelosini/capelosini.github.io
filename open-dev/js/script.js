@@ -6,7 +6,7 @@ function refresh(){
     var code = (codeHtml + " " + "<style>" + codeCss + "</style>")
     document.getElementById("responsive-page").innerHTML = code;
     console.log(code)
-    return (code)
+    return (code + " " + "<title>index</title>")
 }
 
 function download(){
