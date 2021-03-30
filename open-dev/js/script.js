@@ -1,16 +1,10 @@
-var code2 = "";
-
 addEventListener("keyup", refresh)
 
 function refresh(){
-    var code = document.getElementById('code').value;
-    if (code2 == code){
-        console.log("Nothing to change");
-    }
-    else{
-        code2 = code;
-        document.getElementById("responsive-page").innerHTML = code;
-        console.log(code)
-    }
+    var codeHtml = document.getElementById('code-html').value;
+    var codeCss = document.getElementById('code-css').value;
+    var code = (codeHtml + " " + "<style>" + codeCss + "</style>")
+    document.getElementById("responsive-page").innerHTML = code;
+    console.log(code)
 }
   

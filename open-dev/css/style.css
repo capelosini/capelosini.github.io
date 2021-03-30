@@ -3,43 +3,50 @@ body {
 }
 
 ::selection{
-    background-color: white;
-    color: black;
+    background-color: white !important;
+    color: black !important;
 }
 
 .text-editor{
-    width: 40%;
-    height: 100%;
-    text-align: center;
+    width: 40% !important;
+    height: 100% !important;
+    text-align: center !important;
+    font-family: verdana !important;
 }
 
 @keyframes code{
-    from{width: 0%;}
-    to{width: 100%;}
+    from{padding-top: 0px; padding-bottom: 0px; width: 0%;}
+    to{padding-top: 10px; padding-bottom: 10px; width: 100%;}
 }
 
 .text-editor input{
-    animation-name: code;
-    animation-duration: 1s;
+    animation-name: code !important;
+    animation-duration: 1s !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
     width: 100%;
-    padding-bottom: 600px;
-    padding-left: 10px;
-    padding-top: 5px;
-    border-radius: 5px;
-    box-shadow: 1px, 1px, 1px, gray;
-    border: none;
-    outline: 0;
-    background-color: black;
-    color: white;
-    box-shadow: 0px, 0px, 0px, white;
-    font-size: 20px;
+    padding-left: 10px !important;
+    padding-top: 5px !important;
+    border-radius: 5px !important;
+    box-shadow: 1px, 1px, 1px, gray !important;
+    border: none !important;
+    outline: 0 !important;
+    background-color: black !important;
+    color: white !important;
+    box-shadow: 0px, 0px, 0px, white !important;
+    font-size: 20px !important;
+}
+
+.text-editor h2{
+    color: rgb(226, 226, 226) !important;
 }
 
 .response{
-    position: absolute; 
-    top: 0px;
-    right: 0px;
-    background-color: white;
-    width: 58%;
-    height: auto;
+    position: absolute !important; 
+    top: 0px !important;
+    right: 0px !important;
+    background-color: white !important;
+    width: 58% !important;
+    height: auto !important;
+    border-radius: 5px !important;
 }
