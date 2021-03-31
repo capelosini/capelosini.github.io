@@ -4,13 +4,16 @@ function refresh(){
     var codeHtml = document.getElementById('code-html').value;
     var codeCss = document.getElementById('code-css').value;
     var codeJs = document.getElementById('code-js').value;
-    var code = ("<script>" + codeJs + "</script>" + codeHtml + " " + "<style>" + codeCss + "</style>")
+    var code = ("<script>" + codeJs + "</script>" + codeHtml + " " + "<style>" + codeCss + "</style>");
     document.getElementById("responsive-page").innerHTML = code;
-    console.log(code)
-    return (code + " " + "<title>index</title>")
+    console.log(code);
+    code = code + " " + "<title>index</title>";
+    return (code)
 }
 
 function download(){
-    document.write(refresh())
+    var newWindow = window.open('', '', 'left=0,top=0,width=1000,height=700,toolbar=0,scrollbars=0,status=0');
+    newWindow.document.write(refresh());
+    newWindow.focus();
 }
   
