@@ -6,8 +6,6 @@ function refresh(){
     var codeJs = document.getElementById('code-js').value;
     var code = ("<script>" + codeJs + "</script>" + codeHtml + " " + "<style>" + codeCss + "</style>");
     document.getElementById("responsive-page").innerHTML = code;
-    console.log(code);
-    code = code + " " + "<title>index</title>";
     return (code)
 }
 
