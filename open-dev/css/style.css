@@ -26,7 +26,7 @@ body {
     to{padding-top: 10px; padding-bottom: 10px; width: 100%;}
 }
 
-.text-editor textarea{
+.editor{
     animation-name: code !important;
     animation-duration: 1s !important;
     padding-top: 10px;
