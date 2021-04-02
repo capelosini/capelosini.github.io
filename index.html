@@ -1,0 +1,84 @@
+<html><script>function openDev(){
+    window.location.href = "https://capelosini.github.io/open-dev/";
+}</script><head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap"rel="stylesheet">
+<title>Welcome!</title>
+<link rel="shortcut icon" type="image/png" href="open-dev/img/favicon.png">
+</head>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTCUFYPpOA9Q8zl6nfeuXokbkiRCWuBUSYMQ&usqp=CAU" class="balloons-image">
+<h1 class="welcome">Welcome to my GitHub! _</h1>
+<br></br>
+<h2 class="title-my-projects">< My Projects ></h2>
+<br></br>
+<div class="open-dev">
+<h1>Open Dev Project</h1>
+<br></br>
+<h2>I created this project to help persons a create their own web pages and help to learn the basic of HTML, CSS and JavaScript.</h2>
+<br></br>
+<button onclick="openDev()">Go></button>
+</div>
+ <style>@keyframes balloonsAnimation{
+    from{width: 0px; height: 0px;}
+    to{width: 225px; height: 225px;}
+}
+
+.balloons-image{
+    animation-name: balloonsAnimation;
+    animation-duration: 1.5s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@keyframes welcomeAnimation{
+    from{font-size: 0px;}
+    to{font-size: 50px;}
+}
+
+.welcome{
+    animation-name: welcomeAnimation;
+    animation-duration: 1s;
+    text-align: center;
+    font-family: 'Staatliches', cursive;
+    font-size: 50px;
+}
+
+@keyframes myProjectsAnimation{
+    from{padding-left: 0%;}
+    to{padding-left: 15%;}
+}
+
+.title-my-projects{
+    animation-name: myProjectsAnimation;
+    animation-duration: 0.8s;
+    padding-left: 15%;
+    font-family: verdana;
+}
+
+.open-dev{
+    border-radius: 10px;
+    padding: 5px;
+    margin: auto;
+    color: white;
+    background-color: black;
+    text-align: center;
+    width: 50%;
+    font-family: verdana;
+    box-shadow: 1px, 1px, 1px, gray;
+}
+
+.open-dev button{
+    border-radius: 20px;
+    border: none;
+    font-size: 30px;
+    font-family: verdana;
+    background: linear-gradient(90deg, rgba(166,76,184,1) 35%, rgba(0,212,255,1) 100%);
+    transition-duration: 1s;
+}
+
+.open-dev button:hover{
+    font-size: 35px;
+    background: linear-gradient(90deg, rgba(0,212,255,1) 35%, rgba(166,76,184,1) 100%);
+    transition-duration: 0.5s;
+}</style></html>
