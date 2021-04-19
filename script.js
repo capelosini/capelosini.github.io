@@ -4,6 +4,14 @@ window.addEventListener("scroll", function(){
     title.style.paddingLeft = (value + "px");
 });
 
+function scrollDown(){
+    var title = document.getElementById("title-my-projects");
+    var atualScroll = window.scrollY;
+    if (atualScroll == 0){
+        window.scroll(0, 526);
+    }
+}
+
 function openDev(){
     window.location.href = "https://capelosini.github.io/open-dev/";
 }
