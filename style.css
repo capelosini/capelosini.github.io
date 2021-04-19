@@ -61,7 +61,7 @@ body{
     background-color: black;
     text-align: center;
     width: 50%;
-    font-family: verdana;
+    font-family: arial;
     box-shadow: 1px, 1px, 1px, gray;
 	transition-duration: 1s;
 }
