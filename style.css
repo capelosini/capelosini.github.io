@@ -47,7 +47,11 @@ body{
     animation-name: myProjectsAnimation;
     animation-duration: 0.8s;
     padding-left: 15%;
-    font-family: verdana;
+    background: linear-gradient(90deg, rgba(166,76,184,1) 35%, rgba(0,212,255,1) 100%);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: arial;
 }
 
 .open-dev{
