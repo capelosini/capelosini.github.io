@@ -29,6 +29,15 @@ htmlCode.addEventListener("keydown", (key) => {
     }
 });
 
+htmlCode.addEventListener("keypress", (key) => {
+    if (key.key == "{"){
+        var cp = htmlCode.selectionStart;
+        htmlCode.value = htmlCode.value.substring(0, cp + 1) + "}" + htmlCode.value.substring(cp, htmlCode.lenght);
+        htmlCode.selectionStart = cp;
+        htmlCode.selectionEnd = cp;
+    }
+});
+
 cssCode.addEventListener("keydown", (key) => {
     if (key.key == "Tab"){
         var cp = cssCode.selectionStart;
@@ -39,6 +48,15 @@ cssCode.addEventListener("keydown", (key) => {
     }
 });
 
+cssCode.addEventListener("keypress", (key) => {
+    if (key.key == "{"){
+        var cp = cssCode.selectionStart;
+        cssCode.value = cssCode.value.substring(0, cp + 1) + "}" + cssCode.value.substring(cp, cssCode.lenght);
+        cssCode.selectionStart = cp;
+        cssCode.selectionEnd = cp;
+    }
+});
+
 jsCode.addEventListener("keydown", (key) => {
     if (key.key == "Tab"){
         var cp = jsCode.selectionStart;
@@ -46,6 +64,15 @@ jsCode.addEventListener("keydown", (key) => {
         setTimeout(() => { jsCode.focus(); }, 50);
         jsCode.selectionStart = cp + 4;
         jsCode.selectionEnd = cp + 4;
+    }
+});
+
+jsCode.addEventListener("keypress", (key) => {
+    if (key.key == "{"){
+        var cp = jsCode.selectionStart;
+        jsCode.value = jsCode.value.substring(0, cp + 1) + "}" + jsCode.value.substring(cp, jsCode.lenght);
+        jsCode.selectionStart = cp;
+        jsCode.selectionEnd = cp;
     }
 });
 
