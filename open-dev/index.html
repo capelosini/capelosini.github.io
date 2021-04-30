@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" type="image/png" href="../favicon.png"/>
-  <script src="js/script.js"></script>
   <title>OpenDev</title>
 </head>
 <body>
   <div class="app">
     <div class="text-editor">
+      <img src="rocket.svg" id="rocket"> 
       <h2>HTML</h2>
       <textarea placeholder="Your Code" id="code-html" wrap="hard" tabindex="1" autofocus="true" spellcheck="false" class="editor"></textarea>
       <br></br>
@@ -20,13 +20,13 @@
       <br></br>
       <h2>JS</h2>
       <textarea placeholder="Your Code" id="code-js" wrap="hard" tabindex="3" spellcheck="false" class="editor"></textarea>
+      <br tabindex="4"></br>
       <br></br>
       <br></br>
-      <br></br>
-      <button onclick="download()">Download</button>
     </div>
     <div class="response" id="responsive-page">
     </div>
   </div>
+  <script src="js/script.js"></script>
 </body>
 </html>
