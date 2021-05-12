@@ -1,13 +1,17 @@
 const Display = document.getElementById("Display");
 const Answer = document.getElementById("Answer");
 const gameResult = document.getElementById("gameResult");
+const Points = document.getElementById("Points");
 const maxLenght = 100;
+const numPoints = 25;
 var n1 = 0;
 var n2 = 0;
+var points = 0;
 
 function game(){
     gameResult.innerText = "";
     Answer.value = null;
+    Points.innerText = "Points: " + points;
     Answer.focus();
     n1 = Math.floor(Math.random() * maxLenght);
     n2 = Math.floor(Math.random() * maxLenght);
@@ -19,11 +23,13 @@ function submit(){
     if (result == Answer.value){
         gameResult.innerText = "Correct!";
         gameResult.style.color = "green";
+        points = points+numPoints;
         setTimeout(() => { game(); }, 2000);
     }
     else{
         gameResult.innerText = "Incorrect!     Result: " + result;
         gameResult.style.color = "red";
+        points=0
         setTimeout(() => { game(); }, 2000);
     };
 };

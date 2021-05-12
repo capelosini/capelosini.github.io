@@ -10,6 +10,13 @@ h1{
     padding-top: 100px;
 }
 
+.Points{
+    text-align: left;
+    padding-left: 15px;
+    padding-top: 15px;
+    color: hsl(60, 100%, 65%);
+}
+
 .Answer{
     border: none;
     outline: none;
