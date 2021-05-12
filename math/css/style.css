@@ -1,0 +1,17 @@
+body{
+    text-align: center;
+    font-family: arial;
+    color: hsl(0, 0%, 100%);
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,113,1) 39%, rgba(255,0,26,1) 99%);
+}
+
+h1{
+    padding-top: 100px;
+}
+
+.Answer{
+    border: none;
+    outline: none;
+    font-size: medium;
+}

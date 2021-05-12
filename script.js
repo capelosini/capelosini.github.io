@@ -15,3 +15,7 @@ function scrollDown(){
 function openDev(){
     window.location.href = "https://capelosini.github.io/open-dev/";
 }
+
+function math(){
+    window.location.href = "https://capelosini.github.io/math/";
+}
