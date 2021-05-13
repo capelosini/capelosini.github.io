@@ -1,9 +1,12 @@
 body{
+    padding-top: 50px;
     text-align: center;
     font-family: arial;
-    color: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 2%);
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,113,1) 39%, rgba(255,0,26,1) 99%);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,165,166,1) 0%, rgba(161,64,74,1) 100%);
+    /*background: rgb(2,0,36);*/
+    /*background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,113,1) 39%, rgba(255,0,26,1) 99%);*/
 }
 
 h1{
@@ -20,5 +23,16 @@ h1{
 .Answer{
     border: none;
     outline: none;
-    font-size: medium;
+    font-size: 20px;
+}
+
+.gameGroup{
+    position: absolute;
+    background-color: hsla(0, 0%, 100%, 0.288);
+    padding-bottom: 10%;
+    width: 60%;
+    height: auto;
+    left: 20%;
+    border-radius: 5px;
+    border: none;
 }
