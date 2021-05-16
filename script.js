@@ -19,3 +19,7 @@ function openDev(){
 function math(){
     window.location.href = "https://capelosini.github.io/math/";
 }
+
+function calculator(){
+    window.location.href = "https://capelosini.github.io/calculator/";
+}
