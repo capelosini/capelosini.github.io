@@ -13,20 +13,21 @@
     <div class="text-editor">
       <img src="rocket.svg" id="rocket"> 
       <h2>HTML</h2>
-      <textarea placeholder="Your Code" id="code-html" wrap="hard" tabindex="1" autofocus="true" spellcheck="false" class="editor"></textarea>
+      <div id="code-html" autofocus="true" class="editor"></div>
       <br></br>
       <h2>CSS</h2>
-      <textarea placeholder="Your Code" id="code-css" wrap="hard" tabindex="2" spellcheck="false" class="editor"></textarea>
+      <div id="code-css" class="editor"></div>
       <br></br>
       <h2>JS</h2>
-      <textarea placeholder="Your Code" id="code-js" wrap="hard" tabindex="3" spellcheck="false" class="editor"></textarea>
-      <br tabindex="4"></br>
+      <div id="code-js" class="editor"></div>
+      <br></br>
       <br></br>
       <br></br>
     </div>
     <div class="response" id="responsive-page">
     </div>
   </div>
+  <script src="https://unpkg.com/monaco-editor@0.24.0/min/vs/loader.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

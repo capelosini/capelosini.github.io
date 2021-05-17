@@ -1,10 +1,11 @@
-const imgRocket = document.getElementById("rocket");
-const htmlCode = document.getElementById("code-html");
-const cssCode = document.getElementById("code-css");
-const jsCode = document.getElementById("code-js");
+var htmlCode = document.getElementById("code-html");
+var cssCode = document.getElementById("code-css");
+var jsCode = document.getElementById("code-js");
+var editor;
+var editor2;
 const responsePage = document.getElementById("responsive-page");
+const imgRocket = document.getElementById("rocket");
 
-addEventListener("keyup", refresh)
 
 addEventListener("scroll", () => {
     var s = window.scrollY;
@@ -17,76 +18,48 @@ addEventListener("scroll", () => {
     }
 })
 
-imgRocket.addEventListener("click", download)
 
-htmlCode.addEventListener("keydown", (key) => {
-    if (key.key == "Tab"){
-        var cp = htmlCode.selectionStart;
-        htmlCode.value = htmlCode.value.substring(0, cp) + "    " + htmlCode.value.substring(cp, htmlCode.lenght);
-        setTimeout(() => { htmlCode.focus(); }, 50);
-        htmlCode.selectionStart = cp + 4;
-        htmlCode.selectionEnd = cp + 4;
+require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor@latest/min/vs' }});
+window.MonacoEnvironment = { getWorkerUrl: () => proxy };
+
+let proxy = URL.createObjectURL(new Blob([`
+    self.MonacoEnvironment = {
+        baseUrl: 'https://unpkg.com/monaco-editor@latest/min/'
+    };
+    importScripts('https://unpkg.com/monaco-editor@latest/min/vs/base/worker/workerMain.js');
+`], { type: 'text/javascript' }));
+
+require(["vs/editor/editor.main"], function () {
+    htmlCode = monaco.editor.create(document.getElementById('code-html'), {
+        value: [].join('\n'),
+        language: 'html',
+        theme: 'vs-dark'
+    });
+    cssCode = monaco.editor.create(document.getElementById('code-css'), {
+        value: [].join('\n'),
+        language: 'css',
+        theme: 'vs-dark'
+    });
+    jsCode = monaco.editor.create(document.getElementById('code-js'), {
+        value: [].join('\n'),
+        language: 'javascript',
+        theme: 'vs-dark'
+    });
+    function refresh(){
+        var code = (htmlCode.getValue() + " " + "<style>" + cssCode.getValue() + "</style>" + " " + "<script>" + jsCode.getValue() + "</script>");
+        document.getElementById("responsive-page").innerHTML = code;
+        return (code);
     }
+    function download(){
+        var newWindow = window.open('', '', 'left=0,top=0,width=1000,height=700,toolbar=0,scrollbars=0,status=0,resizable=yes');
+        var htmlCode = refresh();
+        newWindow.document.write(htmlCode);
+        newWindow.focus();
+        console.log("<html>" + htmlCode + "</html>");
+    }
+    addEventListener("keyup", refresh)
+    imgRocket.addEventListener("click", download)
 });
 
-htmlCode.addEventListener("keypress", (key) => {
-    if (key.key == "{"){
-        var cp = htmlCode.selectionStart;
-        htmlCode.value = htmlCode.value.substring(0, cp + 1) + "}" + htmlCode.value.substring(cp, htmlCode.lenght);
-        htmlCode.selectionStart = cp;
-        htmlCode.selectionEnd = cp;
-    }
-});
 
-cssCode.addEventListener("keydown", (key) => {
-    if (key.key == "Tab"){
-        var cp = cssCode.selectionStart;
-        cssCode.value = cssCode.value.substring(0, cp) + "    " + cssCode.value.substring(cp, cssCode.lenght);
-        setTimeout(() => { cssCode.focus(); }, 50);
-        cssCode.selectionStart = cp + 4;
-        cssCode.selectionEnd = cp + 4;
-    }
-});
-
-cssCode.addEventListener("keypress", (key) => {
-    if (key.key == "{"){
-        var cp = cssCode.selectionStart;
-        cssCode.value = cssCode.value.substring(0, cp + 1) + "}" + cssCode.value.substring(cp, cssCode.lenght);
-        cssCode.selectionStart = cp;
-        cssCode.selectionEnd = cp;
-    }
-});
-
-jsCode.addEventListener("keydown", (key) => {
-    if (key.key == "Tab"){
-        var cp = jsCode.selectionStart;
-        jsCode.value = jsCode.value.substring(0, cp) + "    " + jsCode.value.substring(cp, jsCode.lenght);
-        setTimeout(() => { jsCode.focus(); }, 50);
-        jsCode.selectionStart = cp + 4;
-        jsCode.selectionEnd = cp + 4;
-    }
-});
-
-jsCode.addEventListener("keypress", (key) => {
-    if (key.key == "{"){
-        var cp = jsCode.selectionStart;
-        jsCode.value = jsCode.value.substring(0, cp + 1) + "}" + jsCode.value.substring(cp, jsCode.lenght);
-        jsCode.selectionStart = cp;
-        jsCode.selectionEnd = cp;
-    }
-});
-
-function refresh(){
-    var code = ("<script>" + jsCode.value + "</script>" + htmlCode.value + " " + "<style>" + cssCode.value + "</style>");
-    document.getElementById("responsive-page").innerHTML = code;
-    return (code);
-}
-
-function download(){
-    var newWindow = window.open('', '', 'left=0,top=0,width=1000,height=700,toolbar=0,scrollbars=0,status=0,resizable=yes');
-    var htmlCode = refresh();
-    newWindow.document.write(htmlCode);
-    newWindow.focus();
-    console.log("<html>" + htmlCode + "</html>");
-}
   
