@@ -39,7 +39,16 @@
             music.play();
             const pointValue = 15;
             const pointsLabel = document.getElementById("Points");
-            const scene = new THREE.Scene();
+            const scene = new THREE.Scene({color: 0xfff});
+
+            // load a texture, set wrap mode to repeat
+            const texture = new THREE.TextureLoader().load( "room.jpg" );
+            texture.wrapS = THREE.RepeatWrapping;
+            texture.wrapT = THREE.RepeatWrapping;
+            texture.repeat.set( 1, 1 );
+
+            scene.background = texture;
+
             const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
         
             const hlight = new THREE.AmbientLight(0x404040,100);
