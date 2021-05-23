@@ -25,3 +25,7 @@ function math(){
 function calculator(){
     window.location.href = "https://capelosini.github.io/calculator/";
 }
+
+function musicsword(){
+    window.location.href = "https://capelosini.github.io/musicsword/";
+}

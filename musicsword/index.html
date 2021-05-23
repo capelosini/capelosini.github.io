@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="../favicon.png">
+    <title>MusicSword</title>
+    <script src="three.min.js"></script>
+</head>
+<body style="margin: 0; text-align: center; background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,123,166,1) 0%, rgba(0,122,51,1) 51%, rgba(0,20,166,1) 100%);">
+    <h1 id="Points" style="position: absolute; top: 0; left: 0; font-family: arial; font-size: 40px; color: white;"></h1>
+    <button id="startButtonEasy" onclick="game(0.00001)" style="border: solid 5px black; border-radius: 3px; font-size: 30px; margin-top: 30%;">Start Game Easy</button>
+    <button id="startButtonHard" onclick="game(0.0001)" style="border: solid 5px black; border-radius: 3px; font-size: 30px; margin-top: 30%;">Start Game Hard</button>
+    <style>
+        button{
+            margin: 20px;
+            background-color: rgba(0, 0, 0, 0);
+            transition: 0.5s;
+        }
+        button:hover{
+            background-color: black;
+            color: white;
+            transition-duration: 0.4s;
+        }
+    </style>
+    <script>
+        function game(difficult){
+            document.body.style.cursor = "none";
+            document.getElementById("startButtonEasy").style.visibility = "hidden";
+            document.getElementById("startButtonEasy").style.position = "absolute";
+            document.getElementById("startButtonHard").style.visibility = "hidden";
+            document.getElementById("startButtonHard").style.position = "absolute";
+            var points = 0;
+            var cubeSpeed = 0.2;
+            const boop = new Audio("Boop.mp3")
+            const music = new Audio("Wait-For-Me.mp3");
+            music.volume = 0.2;
+            music.play();
+            const pointValue = 15;
+            const pointsLabel = document.getElementById("Points");
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+        
+            const hlight = new THREE.AmbientLight(0x404040,100);
+            scene.add(hlight);
+            hlight.position.y = 100;
+
+            const geometrycube = new THREE.BoxGeometry(0.2, 0.2);
+            const materialcube = new THREE.MeshBasicMaterial( { color: 0xff0000 } )
+            const cube = new THREE.Mesh(geometrycube,materialcube)
+            scene.add(cube)
+
+            const geometry = new THREE.CylinderGeometry( 0.1, 0.1, 5, 30 );
+            const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+            const sword = new THREE.Mesh( geometry, material );
+            scene.add( sword );
+
+            sword.position.z = 25
+
+            camera.position.z = 30;
+
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            document.body.appendChild( renderer.domElement );
+                
+            addEventListener("mousemove", () => {
+
+                sword.position.x = (event.pageX / 100) - 5;
+                sword.position.y = ((event.pageY - event.pageY * 2) / 100) + 5;
+
+                sword.rotation.x = (event.pageY - event.pageY * 2) / 400;
+
+                renderer.render(scene,camera)
+            });
+            function cubeAnimation() {
+                requestAnimationFrame( cubeAnimation );
+                cubeSpeed = cubeSpeed + difficult
+                cube.position.z = cube.position.z + cubeSpeed;
+
+                if (cube.position.z >= 27){
+                    points = points - pointValue;
+                    pointsLabel.innerText = "Points: " + points;
+                    cube.position.z = 10;
+                    cube.position.x = Math.floor(Math.random() * window.innerWidth / 300) - 2;
+                    cube.position.y = Math.floor(Math.random() * window.innerHeight / 300) - 1;
+                } else if(cube.position.z >= 24 && cube.position.z <= 26 && cube.position.x >= sword.position.x - 0.4 && cube.position.x <= sword.position.x + 0.4 && cube.position.y >= sword.position.y - 5 && cube.position.y <= sword.position.y + 5){
+                    points = points + pointValue;
+                    pointsLabel.innerText = "Points: " + points;
+                    boop.play();
+                    cube.position.z = 10;
+                    cube.position.x = Math.floor(Math.random() * window.innerWidth / 300) - 2;
+                    cube.position.y = Math.floor(Math.random() * window.innerHeight / 300) - 1;
+                }
+                renderer.render( scene, camera );
+            }
+            cubeAnimation();
+        };
+    </script>
+</body>
+</html>

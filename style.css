@@ -167,3 +167,41 @@ body{
     background: linear-gradient(90deg, rgba(0,212,255,1) 35%, rgba(166,76,184,1) 100%);
     transition-duration: 0.5s;
 }
+
+.musicsword{
+    border-radius: 10px;
+    padding: 10px;
+    border-color: rgba(166,76,184,1);
+    border-style: dashed;
+	border-width: 3px;
+    margin: auto;
+    color: white;
+    background-color: black;
+    text-align: center;
+    width: 50%;
+    font-family: arial;
+    box-shadow: 1px, 1px, 1px, gray;
+	transition-duration: 1s;
+}
+
+.musicsword:hover{
+    transition-duration: 0.5s;
+    border-style: solid;
+	border-width: 5px;
+}
+
+.musicsword button{
+    border-radius: 20px;
+    border: none;
+    font-size: 30px;
+    font-family: verdana;
+    background: linear-gradient(90deg, rgba(166,76,184,1) 35%, rgba(0,212,255,1) 100%);
+    outline: none;
+    transition-duration: 1s;
+}
+
+.musicsword button:hover{
+    font-size: 35px;
+    background: linear-gradient(90deg, rgba(0,212,255,1) 35%, rgba(166,76,184,1) 100%);
+    transition-duration: 0.5s;
+}
