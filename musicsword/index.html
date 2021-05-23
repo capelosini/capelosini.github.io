@@ -70,6 +70,7 @@
                 sword.position.y = ((event.pageY - event.pageY * 2) / 100) + 5;
 
                 sword.rotation.x = (event.pageY - event.pageY * 2) / 400;
+                sword.rotation.z = (event.pageX - event.pageX * 2) / 150;
 
                 renderer.render(scene,camera)
             });
