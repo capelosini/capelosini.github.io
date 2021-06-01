@@ -1,0 +1,43 @@
+.childWrapper-anI2G9:hover{
+	background: url(https://i.pinimg.com/originals/0d/5a/7a/0d5a7a920f011a34adf1ccea5046fb2c.gif);
+	background-size: 0.1px;
+}
+
+.scroller-1Bvpku{
+	background-image: url(https://64.media.tumblr.com/e42e88d694200c3ecfd806a9af852e45/tumblr_pk56rtBoPQ1uzwgsuo1_400.gifv);
+	background-size: cover;
+}
+
+.layout-2DM8Md{
+	color: rgba(200,100,100,1);
+}
+
+@keyframes chatanimation{
+	from{padding-bottom: 1000px; padding: 2000px;}
+	to{padding-bottom: 0px; padding: 0px;}
+}
+
+.scrollerInner-2YIMLh{
+	animation-name: chatanimation;
+	animation-duration: 0.7s;
+}
+
+.roleColor-rz2vM0:hover{
+	transition-duration: 0.5s;
+	height: 30px;
+	font-size: 20px;
+}
+
+.scrollerInner-2YIMLh img{
+	transition-duration: 0.7s;
+	border-radius: 2px;
+}
+
+.scrollerInner-2YIMLh img:hover{
+	transition-duration: 0.5s;
+	border-radius: 20px;
+}
+
+.scrollerInner-2YIMLh a{
+	color: blue;
+}
