@@ -20,7 +20,7 @@
 
 .roleColor-rz2vM0:hover{
 	transition-duration: 0.5s;
-	height: 30px;
+	height: 300px;
 	font-size: 20px;
 }
 
@@ -36,8 +36,4 @@
 
 .scrollerInner-2YIMLh a{
 	color: blue;
-}
-
-.usernameFont-23TX-h{
-    color: red;
 }
