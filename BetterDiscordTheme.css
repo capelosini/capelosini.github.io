@@ -8,10 +8,6 @@
 	background-size: cover;
 }
 
-.layout-2DM8Md{
-	color: rgba(200,100,100,1);
-}
-
 @keyframes chatanimation{
 	from{padding-bottom: 1000px; padding: 2000px;}
 	to{padding-bottom: 0px; padding: 0px;}
