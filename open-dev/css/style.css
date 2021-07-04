@@ -44,12 +44,12 @@ body {
 }
 
 @keyframes code{
-    from{padding-top: 500px; padding-bottom: 0px; width: 0%;}
-    to{padding-top: 10px; padding-bottom: 10px; width: 100%;}
+    from{padding-top: 500px; padding-bottom: 0px; width: 0%; opacity: 0;}
+    to{padding-top: 50px; padding-bottom: 10px; width: 100%; opacity: 1;}
 }
 
 .editor{
-    animation-name: code !important;
+    animation-name: code2 !important;
     animation-duration: 1s !important;
     width: 100%;
     height: 300px;
@@ -65,19 +65,25 @@ body {
 .text-editor h2{
     animation-name: code !important;
     animation-duration: 1s !important;
+    animation-delay: 0.5s;
     color: rgb(226, 226, 226) !important;
     padding-top: 30px;
     transition-duration: 1.5s;
     font-family: arial !important;
-    padding-left: 35%;
+    padding-left: 40%;
+    padding-top: 50px;
 }
 
-.text-editor img{
+.head img{
+    width: 50px;
+    height: 50px;
+}
+
+.head{
     position: -webkit-sticky !important; /* Safari */
     position: sticky !important;
     top: 0 !important;
-    width: 50px;
-    height: 50px;
+    padding: 20px;
     border-radius: 10px;
     border: none !important;
     outline: none i !important;
@@ -85,7 +91,7 @@ body {
     transition-duration: 1s;
 }
 
-.text-editor img:hover{
+.head img:hover{
     width: 60px;
     height: 60px;
     transition-duration: 0.5s;
