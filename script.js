@@ -1,7 +1,7 @@
 window.addEventListener("scroll", function(){
     var value = window.scrollY;
     var title = document.getElementById("title-my-projects");
-    if (value <= 600){
+    if (value <= window.innerWidth / 2 - title.innerText.length * 6){
         title.style.paddingLeft = (value + "px");
     }
 });
