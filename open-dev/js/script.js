@@ -46,7 +46,7 @@ require(["vs/editor/editor.main"], function () {
         theme: 'vs-dark'
     });
     function refresh(){
-        var code = (htmlCode.getValue() + " " + "<style>" + cssCode.getValue() + "</style>" + " " + "<script>" + jsCode.getValue() + "</script>");
+        var code = (htmlCode.getValue() + " <style scoped'>" + cssCode.getValue() + "</style> " + "<script>" + jsCode.getValue() + "</script>");
         document.getElementById("responsive-page").innerHTML = code;
         return (code);
     }
