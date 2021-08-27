@@ -47,7 +47,7 @@ require(["vs/editor/editor.main"], function () {
     });
     function refresh(){
         var code = (htmlCode.getValue() + " <style scoped'>" + cssCode.getValue() + "</style> " + "<script>" + jsCode.getValue() + "</script>");
-        document.getElementById("responsive-page").innerHTML = code;
+        document.getElementById("responsive-page").innerHTML = ("<div>" + code + "</div>");
         return (code);
     }
     function download(){
