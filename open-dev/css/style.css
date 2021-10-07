@@ -1,9 +1,5 @@
 body {
-    background-color: rgb(51, 51, 51) !important;
-    background-image: url(../wave.svg) !important;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: bottom;
+    background-color: rgb(51, 51, 51);
 }
 
 ::-webkit-scrollbar {
@@ -27,15 +23,15 @@ body {
 }
 
 ::selection{
-    background-color: white !important;
-    color: black !important;
+    background-color: white;
+    color: black;
     border-radius: 20px;
 }
 
 .text-editor{
-    width: 45% !important;
-    height: 100% !important;
-    font-family: verdana !important;
+    width: 45%;
+    height: 100%;
+    font-family: verdana;
 }
 
 @keyframes code2{
@@ -49,28 +45,30 @@ body {
 }
 
 .editor{
-    animation-name: code2 !important;
-    animation-duration: 1s !important;
-    width: 100%;
+    animation-name: code2;
+    animation-duration: 1s;
+    width: 45%;
     height: 300px;
-    padding-left: 0px !important;
-    padding-top: 0px !important;
-    border-radius: 2px !important;
-    box-shadow: 0px, 0px, 0px, gray !important;
-    border-color: blueviolet !important;
-    border-width: 2px !important;
-    outline: 0 !important;
+    padding-left: 0px;
+    padding-top: 0px;
+    border-radius: 2px;
+    box-shadow: 0px, 0px, 0px, gray;
+    border-color: blueviolet;
+    border-width: 2px;
+    outline: 0;
+    position: absolute;
+    top: 30%;
 }
 
 .text-editor h2{
-    animation-name: code !important;
-    animation-duration: 1s !important;
+    animation-name: code;
+    animation-duration: 1s;
     animation-delay: 0.5s;
-    color: rgb(226, 226, 226) !important;
-    padding-top: 30px;
+    color: rgb(226, 226, 226);
     transition-duration: 1.5s;
-    font-family: arial !important;
-    padding-left: 40%;
+    font-family: arial;
+    display: block;
+    padding-left: 10%;
     padding-top: 50px;
 }
 
@@ -80,12 +78,13 @@ body {
 }
 
 .head{
-    top: 0 !important;
+    top: 0;
     padding: 20px;
     border-radius: 10px;
-    border: none !important;
-    outline: none i !important;
+    border: none;
+    outline: none i;
     float: left;
+    display: block;
     transition-duration: 1s;
 }
 
@@ -96,11 +95,36 @@ body {
 }
 
 .response{
-    position: absolute !important;
-    top: 0px !important;
-    right: 0px !important;
-    background-color: white !important;
-    width: 58% !important;
-    height: auto !important;
-    border-radius: 5px !important;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: white;
+    width: 55%;
+    height: 100%;
+    border-radius: 5px;
+}
+#DisplayI{
+    width: 100%;
+    height: 100%;
+}
+.monaco-editor{
+    border-radius: 5px;
+}
+#code-html .monaco-editor{
+    border: solid orangered;
+}
+#code-css .monaco-editor{
+    border: solid hsl(221, 100%, 50%);
+}
+#code-js .monaco-editor{
+    border: solid hsl(66, 100%, 44%);
+}
+#wave{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+#Selector{
+    padding-left: 30px;
 }

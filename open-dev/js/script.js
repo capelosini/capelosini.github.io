@@ -1,11 +1,23 @@
 var htmlCode = document.getElementById("code-html");
 var cssCode = document.getElementById("code-css");
 var jsCode = document.getElementById("code-js");
+var di = document.getElementById("DisplayI")
 var editor;
 var editor2;
 const responsePage = document.getElementById("responsive-page");
 const imgRocket = document.getElementById("rocket");
 const buttonBaseHtml = document.getElementById("basehtml")
+
+cssCode.style.zIndex = "-1"
+jsCode.style.zIndex = "-1"
+
+$(".sbtn").click(() => {
+    $(".sbtn").removeClass("btn-primary")
+    $(".sbtn").addClass("btn-outline-primary")
+    event.target.className = "sbtn btn btn-primary"
+    $(".editor").css({zIndex: "-1"})
+    $("#code-"+event.target.title).css({zIndex: "0"})
+})
 
 addEventListener("scroll", () => {
     var s = window.scrollY;
@@ -47,7 +59,10 @@ require(["vs/editor/editor.main"], function () {
     });
     function refresh(){
         var code = (htmlCode.getValue() + " <style scoped'>" + cssCode.getValue() + "</style> " + "<script>" + jsCode.getValue() + "</script>");
-        document.getElementById("responsive-page").innerHTML = ("<div>" + code + "</div>");
+        var newBlob = new Blob([code], {type: "text/html"})
+        var newUrl = URL.createObjectURL(newBlob)
+        di.src = newUrl
+        URL.revokeObjectURL(newUrl)
         return (code);
     }
     function download(){
@@ -58,6 +73,7 @@ require(["vs/editor/editor.main"], function () {
         console.log("<html>" + htmlCode + "</html>");
     }
     addEventListener("keyup", refresh)
+    addEventListener("click", refresh)
     imgRocket.addEventListener("click", download)
     buttonBaseHtml.addEventListener("click", () => { htmlCode.setValue(`<!DOCTYPE html>
 <html lang="en">
