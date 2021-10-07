@@ -19,17 +19,6 @@ $(".sbtn").click(() => {
     $("#code-"+event.target.title).css({zIndex: "0"})
 })
 
-addEventListener("scroll", () => {
-    var s = window.scrollY;
-    var rh = responsePage.scrollHeight;
-    if (rh <= window.outerHeight){
-        responsePage.style.paddingTop = s + "px";
-    }
-    else{
-        responsePage.style.paddingTop = "0px";
-    }
-})
-
 
 require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor@latest/min/vs' }});
 window.MonacoEnvironment = { getWorkerUrl: () => proxy };
@@ -58,7 +47,7 @@ require(["vs/editor/editor.main"], function () {
         theme: 'vs-dark'
     });
     function refresh(){
-        var code = (htmlCode.getValue() + " <style scoped'>" + cssCode.getValue() + "</style> " + "<script>" + jsCode.getValue() + "</script>");
+        var code = ('<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> '+ htmlCode.getValue() + " <style scoped'>" + cssCode.getValue() + "</style> " + '<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script><script>' + jsCode.getValue() + "</script>");
         var newBlob = new Blob([code], {type: "text/html"})
         var newUrl = URL.createObjectURL(newBlob)
         di.src = newUrl
@@ -68,7 +57,7 @@ require(["vs/editor/editor.main"], function () {
     function download(){
         var newWindow = window.open('', '', 'left=0,top=0,width=1000,height=700,toolbar=0,scrollbars=0,status=0,resizable=yes');
         var htmlCode = refresh();
-        newWindow.document.write('<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">' + htmlCode + '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>');
+        newWindow.document.write(htmlCode);
         newWindow.focus();
         console.log("<html>" + htmlCode + "</html>");
     }
