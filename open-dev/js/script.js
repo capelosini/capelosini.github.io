@@ -4,6 +4,7 @@ var jsCode = document.getElementById("code-js");
 var di = document.getElementById("DisplayI")
 var editor;
 var editor2;
+var saves = 0
 const responsePage = document.getElementById("responsive-page");
 const imgRocket = document.getElementById("rocket");
 const buttonBaseHtml = document.getElementById("basehtml")
@@ -55,11 +56,18 @@ require(["vs/editor/editor.main"], function () {
         return (code);
     }
     function download(){
-        var newWindow = window.open('', '', 'left=0,top=0,width=1000,height=700,toolbar=0,scrollbars=0,status=0,resizable=yes');
         var htmlCode = refresh();
-        newWindow.document.write(htmlCode);
-        newWindow.focus();
-        console.log("<html>" + htmlCode + "</html>");
+        var blob = new Blob([htmlCode], {type: "text"})
+        var urlNow = URL.createObjectURL(blob)
+        var newa = document.createElement("a")
+        newa.href=urlNow
+        newa.target = "_blank"
+        newa.download="index.html"
+        newa.id = "downloadA"
+        document.body.appendChild(newa)
+        document.querySelector("#downloadA").click()
+        document.querySelector("#downloadA").remove()
+        URL.revokeObjectURL(urlNow)
     }
     addEventListener("keyup", refresh)
     addEventListener("click", refresh)
