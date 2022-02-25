@@ -92,3 +92,12 @@ body{
     background: linear-gradient(90deg, rgba(0,212,255,1) 35%, rgba(166,76,184,1) 100%);
     transition-duration: 0.5s;
 }
+.project img{
+    transition-duration: 1s;
+    width: 80%;
+    border-radius: 5px;
+}
+.project img:hover{
+    transition-duration: 0.5s;
+    width: 85%;
+}
