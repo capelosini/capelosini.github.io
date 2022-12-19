@@ -48,7 +48,7 @@ require(["vs/editor/editor.main"], function () {
         theme: 'vs-dark'
     });
     function refresh(){
-        var code = ('<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> '+ htmlCode.getValue() + " <style scoped'>" + cssCode.getValue() + "</style> " + '<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script><script>' + jsCode.getValue() + "</script>");
+        var code = ('<!-- Created with capelosini.github.io/open-dev -->\n\n<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">\n'+ htmlCode.getValue() + "\n<style>\n" + cssCode.getValue() + "\n</style>\n" + '<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>\n<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>\n<script>\n' + jsCode.getValue() + "\n</script>");
         var newBlob = new Blob([code], {type: "text/html"})
         var newUrl = URL.createObjectURL(newBlob)
         di.src = newUrl
@@ -68,7 +68,11 @@ require(["vs/editor/editor.main"], function () {
         document.querySelector("#downloadA").click()
         document.querySelector("#downloadA").remove()
         URL.revokeObjectURL(urlNow)
+        
+        var demoWindow=window.open("", "Demo", "width=700,height=700")
+        demoWindow.document.write(htmlCode)
     }
+
     addEventListener("keyup", refresh)
     addEventListener("click", refresh)
     imgRocket.addEventListener("click", download)
@@ -78,10 +82,10 @@ require(["vs/editor/editor.main"], function () {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Template</title>
 </head>
 <body>
-      
+    
 </body>
 </html>`) })
 });
