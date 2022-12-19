@@ -1,79 +1,82 @@
 <head>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap"rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <title>Welcome!</title>
   <link rel="shortcut icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="welcome-div">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTCUFYPpOA9Q8zl6nfeuXokbkiRCWuBUSYMQ&usqp=CAU" class="balloons-image">
-    <h1 class="welcome">Welcome to my GitHub! _</h1>
+  <div class="welcome-div" data-aos="zoom-in-down" data-aos-duration="1000">
+    <img src="favicon.png" class="mainImage">
+    <h1 class="welcome">Welcome to my GitHub!</h1>
     <br></br>
-    <img src="arrow.png" class="scroll-down" onclick="scrollDown()">
+    <span class="scrollDownTextSpan">Scroll Down</span>
     </div>
     <br></br>
     <h2 class="title-my-projects" id="title-my-projects">< My Projects ></h2>
     <br></br>
-    <div class="project">
+    <div class="project" data-aos="flip-right" data-aos-anchor-placement="top-center">
       <h1>Open Dev Project</h1>
       <br></br>
-      <h2>I created this project to help persons to create their own web pages and help to learn the basic of HTML, CSS and JavaScript.</h2>
+      <h2>I created this project to help people on creating their own web pages and helping them to learn the basic of HTML, CSS and JavaScript.</h2>
       <br></br>
       <img src="open-dev/thumb.png">
       <br></br>
-      <button onclick="redirect('https://capelosini.github.io/open-dev/')">Go></button>
+      <button><a href="/open-dev" target="_blank">Go></a></button>
     </div>
     <br>
-    <div class="project">
+    <div class="project" data-aos="flip-right" data-aos-anchor-placement="top-center">
       <h1>Math</h1>
       <br></br>
       <h2>I created this project to train your math speed.</h2>
       <br></br>
       <img src="math/thumb.png">
       <br></br>
-      <button onclick="redirect('https://capelosini.github.io/math/')">Go></button>
+      <button><a href="/math" target="_blank">Go></a></button>
     </div>
     <br>
-    <div class="project">
+    <div class="project" data-aos="flip-right" data-aos-anchor-placement="top-center">
       <h1>Calculator</h1>
       <br></br>
       <img src="calculator/thumb.png">
       <br></br>
       <h2>One calculator that I made to train my coding experience.</h2>
       <br></br>
-      <button onclick="redirect('https://capelosini.github.io/calculator/')">Go></button>
+      <button><a href="/calculator" target="_blank">Go></a></button>
     </div>
     <br></br>
-    <div class="project">
+    <div class="project" data-aos="flip-right" data-aos-anchor-placement="top-center">
       <h1>Music Sword</h1>
       <br></br>
       <img src="musicsword/thumb.png">
       <br></br>
       <h2>It's a game that is based on Beat Saber for web and not VR</h2>
       <br></br>
-      <button onclick="redirect('https://capelosini.github.io/musicsword/')">Go></button>
+      <button><a href="/musicsword" target="_blank">Go></a></button>
     </div>
     <br></br>
-    <div class="project">
+    <div class="project" data-aos="flip-right" data-aos-anchor-placement="top-center">
       <h1>Infinity Bonk</h1>
       <br></br>
       <img src="infinitybonk/thumb.png">
       <br></br>
       <h2>A Project to simulate the 'NO SIGNAL' on old TVs, but more funny</h2>
       <br></br>
-      <button onclick="redirect('https://capelosini.github.io/infinitybonk/')">Go></button>
+      <button><a href="/infinitybonk" target="_blank">Go></a></button>
     </div>
     <br></br>
-    <div class="project">
+    <div class="project" data-aos="flip-right" data-aos-anchor-placement="top-center">
       <h1>Watch 2 Gether</h1>
       <br></br>
       <img src="watch2gether/thumb.png">
       <br></br>
       <h2>Some times you want to watch movies or videos with your friends, now you can!</h2>
       <br></br>
-      <button onclick="redirect('https://watch-2gether.herokuapp.com/')">Go></button>
+      <button><a href="https://github.com/capelosini/Watch2Gether" target="_blank">Go></a></button>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="script.js"></script>
 </body>

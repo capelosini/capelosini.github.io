@@ -1,3 +1,7 @@
+// The dev said welcome!
+
+AOS.init();
+
 window.addEventListener("scroll", function(){
     var value = window.scrollY;
     var title = document.getElementById("title-my-projects");
@@ -6,14 +10,11 @@ window.addEventListener("scroll", function(){
     }
 });
 
-function scrollDown(){
-    var title = document.getElementById("title-my-projects");
-    var atualScroll = window.scrollY;
-    if (atualScroll == 0){
-        window.scroll(0, 526);
+// Animation for title
+setInterval(() => {
+    if ($(".welcome").text() == "Welcome to my GitHub!"){
+        $(".welcome").text("Welcome to my GitHub! _")
+    } else{
+        $(".welcome").text("Welcome to my GitHub!")
     }
-}
-
-function redirect(url){
-    window.location.href = url
-}
+}, 700)
