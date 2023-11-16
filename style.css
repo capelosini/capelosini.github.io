@@ -27,7 +27,7 @@ body{
 
 .welcome{
     text-align: center;
-    font-family: 'Staatliches', cursive;
+    font-family: 'Staatliches';
     font-size: 300%;
 }
 
@@ -73,10 +73,11 @@ body{
     border-radius: 20px;
     border: none;
     font-size: 30px;
-    font-family: verdana;
+    font-family: "Bebas Neue";
     background: linear-gradient(90deg, rgba(166,76,184,1) 35%, rgba(0,212,255,1) 100%);
     outline: none;
     transition-duration: 1s;
+    padding: 10px 15px;
 }
 
 .project button:hover{
@@ -90,7 +91,7 @@ body{
 }
 .project img{
     transition-duration: 1s;
-    width: 80%;
+    width: 60%;
     border-radius: 5px;
 }
 .project img:hover{
