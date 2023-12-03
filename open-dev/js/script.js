@@ -109,6 +109,27 @@ require(["vs/editor/editor.main"], function () {
 });
 
 
+function getVersions(user, repo){
+    var xmlHttp = new XMLHttpRequest()
+    xmlHttp.open("GET", "https://data.jsdelivr.com/v1/packages/gh/"+user+"/"+repo, false)
+    xmlHttp.send(null)
+    return JSON.parse(xmlHttp.responseText).versions
+}
+var bootstrapVersions = getVersions("twbs", "bootstrap")
+var jqueryVersions = getVersions("jquery", "jquery")
+var picoCssVersions = getVersions("picocss", "pico")
+
+bootstrapVersions.forEach(e => {
+    $("#bootstrapVersion").append('<option value="'+e.version+'">'+e.version+"</option>\n")
+})
+
+jqueryVersions.forEach(e => {
+    $("#jqueryVersion").append('<option value="'+e.version+'">'+e.version+"</option>\n")
+})
+
+picoCssVersions.forEach(e => {
+    $("#picoCssVersion").append('<option value="'+e.version+'">'+e.version+"</option>\n")
+})
 
 // var list=""
 // document.querySelectorAll(".version-dropdown_wrapper_list_item").forEach(e => {
