@@ -2,9 +2,6 @@ var htmlCode = document.getElementById("code-html");
 var cssCode = document.getElementById("code-css");
 var jsCode = document.getElementById("code-js");
 var di = document.getElementById("DisplayI")
-var editor;
-var editor2;
-var saves = 0
 const responsePage = document.getElementById("responsive-page");
 const imgRocket = document.getElementById("rocket");
 const buttonBaseHtml = document.getElementById("basehtml")
@@ -54,8 +51,22 @@ require(["vs/editor/editor.main"], function () {
         jsCode.layout();
     })
 
-    function refresh(){
-        var code = ('<!-- Created with capelosini.github.io/open-dev -->\n\n<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">\n'+ htmlCode.getValue() + "\n<style>\n" + cssCode.getValue() + "\n</style>\n" + '<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>\n<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>\n<script>\n' + jsCode.getValue() + "\n</script>");
+    function refresh(e=undefined){
+        let bootstrap=["", ""]
+        let jquery=""
+        let picoCss=""
+        if ($("#bootstrapVersion").val() != "none"){
+            bootstrap[0]='<link href="https://cdn.jsdelivr.net/npm/bootstrap@'+ $("#bootstrapVersion").val() +'/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">\n'
+            bootstrap[1]='<script src="https://cdn.jsdelivr.net/npm/bootstrap@'+ $("#bootstrapVersion").val() +'/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>\n'
+        }
+        if ($("#jqueryVersion").val() != "none"){
+            jquery='<script src="https://cdn.jsdelivr.net/npm/jquery@'+ $("#jqueryVersion").val() +'/dist/jquery.min.js" crossorigin="anonymous"></script>\n'
+        }
+        if ($("#picoCssVersion").val() != "none"){
+            picoCss='<link href=" https://cdn.jsdelivr.net/npm/@picocss/pico@'+ $("#picoCssVersion").val() +'/css/pico.min.css" rel="stylesheet">\n'
+        }
+
+        var code = ('<!-- Created with capelosini.github.io/open-dev -->\n'+ picoCss + bootstrap[0] + htmlCode.getValue() + "\n<style>\n" + cssCode.getValue() + "\n</style>\n" + jquery + bootstrap[1] + '<script>\n' + jsCode.getValue() + "\n</script>");
         var newBlob = new Blob([code], {type: "text/html"})
         var newUrl = URL.createObjectURL(newBlob)
         di.src = newUrl
@@ -97,4 +108,11 @@ require(["vs/editor/editor.main"], function () {
 </html>`) })
 });
 
-  
+
+
+// var list=""
+// document.querySelectorAll(".version-dropdown_wrapper_list_item").forEach(e => {
+//   list+='<option value="'+e.innerText+'">'+e.innerText+"</option>\n"
+// })
+
+// console.log(list)  
