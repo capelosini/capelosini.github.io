@@ -1,5 +1,7 @@
-body {
+body, html {
     background-color: rgb(51, 51, 51);
+    padding: 0;
+    margin: 0;
 }
 
 ::-webkit-scrollbar {
@@ -48,7 +50,7 @@ body {
     animation-name: code2;
     animation-duration: 1s;
     width: 45%;
-    height: 300px;
+    height: 500px;
     padding-left: 0px;
     padding-top: 0px;
     border-radius: 2px;
@@ -57,7 +59,7 @@ body {
     border-width: 2px;
     outline: 0;
     position: absolute;
-    top: 30%;
+    top: 20%;
 }
 
 .text-editor h2{
