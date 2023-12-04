@@ -66,7 +66,7 @@ require(["vs/editor/editor.main"], function () {
             picoCss='<link href=" https://cdn.jsdelivr.net/npm/@picocss/pico@'+ $("#picoCssVersion").val() +'/css/pico.min.css" rel="stylesheet">\n'
         }
 
-        var code = ('<!-- Created with capelosini.github.io/open-dev -->\n'+ picoCss + bootstrap[0] + htmlCode.getValue() + "\n<style>\n" + cssCode.getValue() + "\n</style>\n" + jquery + bootstrap[1] + '<script>\n' + jsCode.getValue() + "\n</script>");
+        var code = ('<!-- Created with capelosini.github.io/open-dev -->\n'+ picoCss + bootstrap[0] + bootstrap[1] + htmlCode.getValue() + "\n<style>\n" + cssCode.getValue() + "\n</style>\n" + jquery + '<script>\n' + jsCode.getValue() + "\n</script>");
         var newBlob = new Blob([code], {type: "text/html"})
         var newUrl = URL.createObjectURL(newBlob)
         di.src = newUrl
