@@ -132,15 +132,3 @@ body, html {
 #Selector{
     padding-left: 30px;
 }
-#configPanel{
-    padding: 20px;
-    width: 400px;
-    top: 50px;
-    left: 50px;
-    position: absolute;
-    background-color: rgb(31, 31, 51);
-    border-radius: 5px;
-}
-.hidden{
-    visibility: hidden;
-}
