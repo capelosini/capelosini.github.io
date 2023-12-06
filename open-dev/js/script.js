@@ -52,12 +52,13 @@ require(["vs/editor/editor.main"], function () {
     })
 
     function refresh(e=undefined){
-        let bootstrap=["", ""]
+        let bootstrap=["", "", ""]
         let jquery=""
         let picoCss=""
         if ($("#bootstrapVersion").val() != "none"){
             bootstrap[0]='<link href="https://cdn.jsdelivr.net/npm/bootstrap@'+ $("#bootstrapVersion").val() +'/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">\n'
             bootstrap[1]='<script src="https://cdn.jsdelivr.net/npm/bootstrap@'+ $("#bootstrapVersion").val() +'/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>\n'
+            bootstrap[2]='<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.min.css">\n'
         }
         if ($("#jqueryVersion").val() != "none"){
             jquery='<script src="https://cdn.jsdelivr.net/npm/jquery@'+ $("#jqueryVersion").val() +'/dist/jquery.min.js" crossorigin="anonymous"></script>\n'
@@ -66,7 +67,7 @@ require(["vs/editor/editor.main"], function () {
             picoCss='<link href=" https://cdn.jsdelivr.net/npm/@picocss/pico@'+ $("#picoCssVersion").val() +'/css/pico.min.css" rel="stylesheet">\n'
         }
 
-        var code = ('<!-- Created with capelosini.github.io/open-dev -->\n'+ picoCss + bootstrap[0] + bootstrap[1] + htmlCode.getValue() + "\n<style>\n" + cssCode.getValue() + "\n</style>\n" + jquery + '<script>\n' + jsCode.getValue() + "\n</script>");
+        var code = ('<!-- Created with capelosini.github.io/open-dev -->\n'+ picoCss + bootstrap[0] + bootstrap[2] + bootstrap[1] + htmlCode.getValue() + "\n<style>\n" + cssCode.getValue() + "\n</style>\n" + jquery + '<script>\n' + jsCode.getValue() + "\n</script>");
         var newBlob = new Blob([code], {type: "text/html"})
         var newUrl = URL.createObjectURL(newBlob)
         di.src = newUrl
