@@ -2,6 +2,7 @@ var htmlCode = document.getElementById("code-html");
 var cssCode = document.getElementById("code-css");
 var jsCode = document.getElementById("code-js");
 var di = document.getElementById("DisplayI")
+var lastRender = ""
 const responsePage = document.getElementById("responsive-page");
 const imgRocket = document.getElementById("rocket");
 const buttonBaseHtml = document.getElementById("basehtml")
@@ -60,10 +61,13 @@ require(["vs/editor/editor.main"], function () {
 
     function refresh(e=undefined){
         var code = ('<!-- Created with capelosini.github.io/open-dev -->\n'+ picoCss + bootstrap[0] + bootstrap[2] + bootstrap[1] + tailwind + htmlCode.getValue() + "\n<style>\n" + cssCode.getValue() + "\n</style>\n" + jquery + '<script>\n' + jsCode.getValue() + "\n</script>");
-        var newBlob = new Blob([code], {type: "text/html"})
-        var newUrl = URL.createObjectURL(newBlob)
-        di.src = newUrl
-        URL.revokeObjectURL(newUrl)
+        if (code != lastRender){
+            var newBlob = new Blob([code], {type: "text/html"})
+            var newUrl = URL.createObjectURL(newBlob)
+            di.src = newUrl
+            URL.revokeObjectURL(newUrl)
+            lastRender = code
+        }
         return (code);
     }
     function download(){
