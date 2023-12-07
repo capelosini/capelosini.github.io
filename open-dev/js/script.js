@@ -5,6 +5,13 @@ var di = document.getElementById("DisplayI")
 const responsePage = document.getElementById("responsive-page");
 const imgRocket = document.getElementById("rocket");
 const buttonBaseHtml = document.getElementById("basehtml")
+const updateDelay=1000
+
+// frameworks
+let bootstrap=["", "", ""]
+let jquery=""
+let picoCss=""
+let tailwind=""
 
 cssCode.style.zIndex = "-1"
 jsCode.style.zIndex = "-1"
@@ -52,22 +59,7 @@ require(["vs/editor/editor.main"], function () {
     })
 
     function refresh(e=undefined){
-        let bootstrap=["", "", ""]
-        let jquery=""
-        let picoCss=""
-        if ($("#bootstrapVersion").val() != "none"){
-            bootstrap[0]='<link href="https://cdn.jsdelivr.net/npm/bootstrap@'+ $("#bootstrapVersion").val() +'/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">\n'
-            bootstrap[1]='<script src="https://cdn.jsdelivr.net/npm/bootstrap@'+ $("#bootstrapVersion").val() +'/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>\n'
-            bootstrap[2]='<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.min.css">\n'
-        }
-        if ($("#jqueryVersion").val() != "none"){
-            jquery='<script src="https://cdn.jsdelivr.net/npm/jquery@'+ $("#jqueryVersion").val() +'/dist/jquery.min.js" crossorigin="anonymous"></script>\n'
-        }
-        if ($("#picoCssVersion").val() != "none"){
-            picoCss='<link href=" https://cdn.jsdelivr.net/npm/@picocss/pico@'+ $("#picoCssVersion").val() +'/css/pico.min.css" rel="stylesheet">\n'
-        }
-
-        var code = ('<!-- Created with capelosini.github.io/open-dev -->\n'+ picoCss + bootstrap[0] + bootstrap[2] + bootstrap[1] + htmlCode.getValue() + "\n<style>\n" + cssCode.getValue() + "\n</style>\n" + jquery + '<script>\n' + jsCode.getValue() + "\n</script>");
+        var code = ('<!-- Created with capelosini.github.io/open-dev -->\n'+ picoCss + bootstrap[0] + bootstrap[2] + bootstrap[1] + tailwind + htmlCode.getValue() + "\n<style>\n" + cssCode.getValue() + "\n</style>\n" + jquery + '<script>\n' + jsCode.getValue() + "\n</script>");
         var newBlob = new Blob([code], {type: "text/html"})
         var newUrl = URL.createObjectURL(newBlob)
         di.src = newUrl
@@ -92,8 +84,10 @@ require(["vs/editor/editor.main"], function () {
         demoWindow.document.write(htmlCode)
     }
 
-    addEventListener("keyup", refresh)
-    addEventListener("click", refresh)
+    setInterval(() => {
+        refresh()
+    }, updateDelay)
+
     imgRocket.addEventListener("click", download)
     buttonBaseHtml.addEventListener("click", () => { htmlCode.setValue(`<!DOCTYPE html>
 <html lang="en">
@@ -109,6 +103,27 @@ require(["vs/editor/editor.main"], function () {
 </html>`) })
 });
 
+function handleConfigChange(){
+    bootstrap=["", "", ""]
+    jquery=""
+    picoCss=""
+    tailwind=""
+    if ($("#bootstrapVersion").val() != "none"){
+        bootstrap[0]='<link href="https://cdn.jsdelivr.net/npm/bootstrap@'+ $("#bootstrapVersion").val() +'/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">\n'
+        bootstrap[1]='<script src="https://cdn.jsdelivr.net/npm/bootstrap@'+ $("#bootstrapVersion").val() +'/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>\n'
+        bootstrap[2]='<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.min.css">\n'
+    }
+    if ($("#jqueryVersion").val() != "none"){
+        jquery='<script src="https://cdn.jsdelivr.net/npm/jquery@'+ $("#jqueryVersion").val() +'/dist/jquery.min.js" crossorigin="anonymous"></script>\n'
+    }
+    if ($("#picoCssVersion").val() != "none"){
+        picoCss='<link href=" https://cdn.jsdelivr.net/npm/@picocss/pico@'+ $("#picoCssVersion").val() +'/css/pico.min.css" rel="stylesheet">\n'
+    }
+    if ($("#tailwindVersion").val() != "none"){
+        tailwind='<script src="https://cdn.tailwindcss.com"></script>\n'
+    }
+}
+$(".config-select").on("change", handleConfigChange)
 
 function getVersions(user, repo){
     var xmlHttp = new XMLHttpRequest()
