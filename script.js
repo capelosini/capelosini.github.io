@@ -14,8 +14,8 @@ window.addEventListener("scroll", function(){
 
     if (value < this.innerHeight){
         // "rotate("+value/3+"deg) " + 
-        $(".mainImage").css({"transform": "translateY("+value/2+"px) " + "translateX("+value/4+"px"})
-        $(".welcome").css({"transform": "translateY("+value/2+"px) " + "translateX("+value/3+"px"})
+        $(".mainImage").css({"transform": "translateY("+value/2+"px)"})
+        $(".welcome").css({"transform": "translateY("+value/3+"px)"})
     }
 });
 

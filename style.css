@@ -60,7 +60,7 @@ body{
     width: 400px;
     display: inline-block;
     font-family: arial;
-    box-shadow: 1px, 1px, 1px, gray;
+    box-shadow: 1px, 1px, 1px, #444;
 	transition-duration: 1s;
     margin: 10px;
 }
@@ -76,13 +76,13 @@ body{
 }
 
 .projectButton{
-    border-radius: 15px;
+    border-radius: 10px;
     border: solid #fff 2px;
-    font-size: 17px;
-    transition-timing-function: ease-in;
     background: linear-gradient(35deg, rgba(166,76,184,1) 35%, rgba(0,212,255,1) 100%);
     background-repeat: no-repeat;
-    background-size: 0 100%;
+    background-size: 0% 100%;
+    font-size: 17px;
+    transition-timing-function: ease-in;
     color: #fff;
     outline: none;
     transition-duration: 700ms;
@@ -93,8 +93,8 @@ body{
 
 .projectButton:hover{
     border: solid #222 2px;
-    background-size: 100% 100%;
     transition-duration: 0.5s;
+    background-size: 100% 100%;
     color: #222;
 }
 
