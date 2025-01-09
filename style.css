@@ -4,7 +4,8 @@ body{
 	padding-bottom: 50px;
     background-color: #272727;
     color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Source Code Pro", serif;
+    text-align: center;
 }
 
 .mainImage{
@@ -23,11 +24,11 @@ body{
 
 .welcome-div{
 	height: 100%;
+    padding: 50px;
 }
 
 .welcome{
     text-align: center;
-    font-family: 'Staatliches';
     font-size: 300%;
 }
 
@@ -53,14 +54,15 @@ body{
     border-color: rgba(166,76,184,1);
     border-style: dashed;
 	border-width: 3px;
-    margin: auto;
     color: #fff;
     background-color: black;
     text-align: center;
-    width: 70%;
+    width: 400px;
+    display: inline-block;
     font-family: arial;
     box-shadow: 1px, 1px, 1px, gray;
 	transition-duration: 1s;
+    margin: 10px;
 }
 
 .project:hover{
@@ -69,26 +71,33 @@ body{
 	border-width: 5px;
 }
 
-.project button{
-    border-radius: 20px;
-    border: none;
-    font-size: 30px;
-    font-family: "Bebas Neue";
-    background: linear-gradient(90deg, rgba(166,76,184,1) 35%, rgba(0,212,255,1) 100%);
-    outline: none;
-    transition-duration: 1s;
-    padding: 10px 15px;
+.project h1{
+    text-shadow: #fff 0px 0px 20px;
 }
 
-.project button:hover{
-    font-size: 35px;
-    background: linear-gradient(90deg, rgba(0,212,255,1) 35%, rgba(166,76,184,1) 100%);
-    transition-duration: 0.5s;
-}
-.project button a{
+.projectButton{
+    border-radius: 15px;
+    border: solid #fff 2px;
+    font-size: 17px;
+    transition-timing-function: ease-in;
+    background: linear-gradient(35deg, rgba(166,76,184,1) 35%, rgba(0,212,255,1) 100%);
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+    color: #fff;
+    outline: none;
+    transition-duration: 700ms;
+    padding: 6px 12px;
+    margin: 15px;
     text-decoration: none;
-    color: black;
 }
+
+.projectButton:hover{
+    border: solid #222 2px;
+    background-size: 100% 100%;
+    transition-duration: 0.5s;
+    color: #222;
+}
+
 .project img{
     transition-duration: 1s;
     width: 60%;
@@ -98,6 +107,7 @@ body{
     transition-duration: 0.5s;
     width: 65%;
 }
-.project h2{
-    padding: 10px 40px;
+.project p{
+    padding: 10px 20px;
+    width: 85%;
 }

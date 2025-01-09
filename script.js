@@ -1,12 +1,21 @@
-// The dev said welcome!
+///////
+// Hello there!
+//////
+
 
 AOS.init();
 
 window.addEventListener("scroll", function(){
-    var value = window.scrollY;
-    var title = document.getElementById("title-my-projects");
+    let value = window.scrollY;
+    let title = document.getElementById("title-my-projects");
     if (value <= window.innerWidth / 2 - title.innerText.length * 6){
         title.style.paddingLeft = (value + "px");
+    }
+
+    if (value < this.innerHeight){
+        // "rotate("+value/3+"deg) " + 
+        $(".mainImage").css({"transform": "translateY("+value/2+"px) " + "translateX("+value/4+"px"})
+        $(".welcome").css({"transform": "translateY("+value/2+"px) " + "translateX("+value/3+"px"})
     }
 });
 
